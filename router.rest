@@ -1,0 +1,34 @@
+
+# Get random activity
+GET http://localhost:3000/api
+###
+# Find an activity by its key
+GET http://localhost:3000/api/?key=5881028
+###
+# Find an activity by its type
+# GetType of the activity
+#["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+GET http://localhost:3000/api/?type=recreational
+###
+
+# Find a random activity with a given number of participants
+GET http://localhost:3000/api/?participants=1
+###
+# Find an activity with a specified price
+GET http://localhost:3000/api/?price=0.0
+###
+# Find an event with a specified price in an inclusively constrained range
+GET http://localhost:3000/api/?minprice=0&maxprice=0.1
+
+###
+# Find a price in an inclusively constrained range
+GET http://localhost:3000/api/?accessibility=1
+
+###
+# Find an event with a specified accessibility in an inclusively constrained range
+GET http://localhost:3000/api/?minaccessibility=0&maxaccessibility=0.1
+
+###
+# Chaining
+GET http://localhost:3000/api/?type=charity&participants=1
+
