@@ -19,9 +19,16 @@ const limiter = rateLimit({
 })
 
 app.use(limiter, basicAuth({
-  users: { 'app': PASS }
+  users: { 'app': PASS },
+  unauthorizedResponse: getUnauthorizedResponse
 }))
 app.set('trust proxy', 1)
+
+function getUnauthorizedResponse(req) {
+  return req.auth
+      ? ('Credentials ' + req.auth.user + ':' + req.auth.password + ' rejected')
+      : 'No credentials provided'
+}
 
 // Enable cors
 app.use(cors())
