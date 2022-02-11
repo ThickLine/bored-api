@@ -37,3 +37,6 @@ GET http://localhost:3000/generate?question=Learn+a+new+recipe
 ###
 # Find an activity by its key
 GET http://localhost:3000/generate?question=fix something+that+is+broken+in+your+house!
+Authorization: Basic app 6gbMK&^<k5@^W9/u)nn^OZ=Z?9X2FS):##o9NWzSDPhMhv–jsL0c;
+
+

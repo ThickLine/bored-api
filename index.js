@@ -3,8 +3,12 @@ const cors = require('cors')
 const rateLimit = require('express-rate-limit')
 require('dotenv').config()
 const errorHandler = require('./middleware/error')
+const basicAuth = require('express-basic-auth')
 
 const PORT = process.env.PORT || 5000
+
+
+const PASS=process.env.PASS
 
 const app = express()
 
@@ -13,7 +17,10 @@ const limiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 Mins
   max: 100,
 })
-app.use(limiter)
+
+app.use(limiter, basicAuth({
+  users: { 'app': PASS }
+}))
 app.set('trust proxy', 1)
 
 // Enable cors
