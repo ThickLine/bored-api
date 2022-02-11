@@ -23,7 +23,8 @@ app.use(cors())
 
 
 // Routes
-app.use('/api', require('./routes'))
+app.use('/api', require('./routes/bored'))
+app.use('/generate', require('./routes/generate'))
 
 // Error handler middleware
 app.use(errorHandler)

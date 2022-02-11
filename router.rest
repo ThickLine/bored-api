@@ -31,4 +31,9 @@ GET http://localhost:3000/api/?minaccessibility=0&maxaccessibility=0.1
 ###
 # Chaining
 GET http://localhost:3000/api/?type=charity&participants=1
-
+###
+# Find an activity by its key
+GET http://localhost:3000/generate?question=Learn+a+new+recipe
+###
+# Find an activity by its key
+GET http://localhost:3000/generate?question=fix something+that+is+broken+in+your+house!
