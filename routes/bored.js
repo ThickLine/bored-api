@@ -4,11 +4,11 @@ const express = require('express')
 const router = express.Router()
 const needle = require('needle')
 const apicache = require('apicache')
+const { getAIValue } = require('./suggestion');
 
 // Env vars
 const API_BASE_URL = process.env.API_BASE_URL
-const API_KEY_NAME = process.env.API_KEY_NAME
-const API_KEY_VALUE = process.env.API_KEY_VALUE
+
 
 // Init cache
 const cache = apicache.middleware
@@ -20,14 +20,21 @@ router.get('/', cache("1 second"), async (req, res, next) => {
     })
 
     const apiRes = await needle('get', `${API_BASE_URL}?${params}`)
-    const data = apiRes.body
+    const activity = apiRes.body;
+    const suggestion=await getAIValue(activity.activity);
+// combine payload
+    const payload={
+  ...activity,
+  ...suggestion
+
+};
 
     // Log the request to the public API
     if (process.env.NODE_ENV !== 'production') {
       console.log(`REQUEST: ${API_BASE_URL}?${params}`)
     }
 
-    res.status(200).json(data)
+    res.status(200).json(payload)
   } catch (error) {
     next(error)
   }
