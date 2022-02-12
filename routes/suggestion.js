@@ -17,7 +17,7 @@ const configuration = new Configuration({
       const completion = await openai.createCompletion("text-davinci-001", {
           prompt: question,
           temperature: 0.7,
-          max_tokens: 60,
+          max_tokens: 100,
           top_p: 1,
           frequency_penalty: 0,
           presence_penalty: 0,
