@@ -10,11 +10,9 @@ const configuration = new Configuration({
   });
   const openai = new OpenAIApi(configuration);
 
-
-
   const getAIValue = async (question) => {
     try {
-      const completion = await openai.createCompletion("text-davinci-001", {
+      const completion = await openai.createCompletion("text-davinci-002", {
           prompt: question,
           temperature: 0.5,
           max_tokens: 842,
@@ -27,7 +25,5 @@ const configuration = new Configuration({
     } catch (error) {
     }
   };
-
-
 
   exports.getAIValue = getAIValue;
