@@ -40,7 +40,8 @@ async (req, res, next) => {
      const data = await getAIValue(payload);
     // Create story
     const recipe = {
-      "instructions":data.suggestion
+      "ingredients": req.body.ingredients,
+      "recipe":data.suggestion
     }
     res.status(200).json(recipe);
   } catch (error) {

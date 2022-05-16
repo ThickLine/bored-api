@@ -41,6 +41,7 @@ async (req, res, next) => {
     // Create story
     const story = {
       "topic": req.body.topic,
+      "count": req.body.count,
       "story":data.suggestion
     }
     res.status(200).json(story);
