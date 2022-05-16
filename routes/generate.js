@@ -11,7 +11,6 @@ router.get('/', cache("1 second"), async (req, res, next) => {
     const question = req.query.question;
     const data = await getAIValue(question);
     res.status(200).json(data);
-
   } catch (error) {
     next(error)
   }

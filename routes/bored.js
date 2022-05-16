@@ -26,7 +26,6 @@ router.get('/', cache("1 second"), async (req, res, next) => {
     const payload={
   ...activity,
   ...suggestion
-
 };
 
     // Log the request to the public API

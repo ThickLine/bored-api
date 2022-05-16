@@ -10,18 +10,17 @@ const configuration = new Configuration({
   });
   const openai = new OpenAIApi(configuration);
 
-  const getAIValue = async (question) => {
+  const getAIValue = async (data) => {
     try {
       const completion = await openai.createCompletion("text-davinci-002", {
-          prompt: question,
-          temperature: 0.5,
+          prompt: data,
+          temperature: 0.8,
           max_tokens: 842,
           top_p: 1,
-          frequency_penalty: 0,
+          frequency_penalty: 0.5,
           presence_penalty: 0,
         });
        return  {suggestion: completion.data.choices[0].text};
-
     } catch (error) {
     }
   };
