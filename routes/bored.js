@@ -21,11 +21,11 @@ router.get('/', cache("1 second"), async (req, res, next) => {
 
     const apiRes = await needle('get', `${API_BASE_URL}?${params}`)
     const activity = apiRes.body;
-    const suggestion=await getAIValue(activity.activity);
+    const suggestion=await getAIValue(activity.activity).trim();
 // combine payload
     const payload={
   ...activity,
-  ...suggestion.trim()
+  ...suggestion
 };
 
     // Log the request to the public API
