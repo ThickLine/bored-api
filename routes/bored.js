@@ -24,8 +24,8 @@ router.get('/', cache("1 second"), async (req, res, next) => {
     const suggestion=await getAIValue(activity.activity);
 // combine payload
     const payload={
-  ...activity,
-  ...suggestion
+  ...activity.trim(),
+  ...suggestion.trim()
 };
 
     // Log the request to the public API
