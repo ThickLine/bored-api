@@ -40,9 +40,9 @@ async (req, res, next) => {
      const data = await getAIValue(payload);
     // Create story
     const story = {
-      "topic": req.body.topic.trim(),
+      "topic": req.body.topic,
       "count": req.body.count,
-      "story":data.suggestion.trim()
+      "story":data.suggestion
     }
     res.status(200).json(story);
   } catch (error) {

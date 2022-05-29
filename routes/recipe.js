@@ -41,7 +41,7 @@ async (req, res, next) => {
     // Create story
     const recipe = {
       "ingredients": req.body.ingredients,
-      "recipe":data.suggestion.trim()
+      "recipe":data.suggestion
     }
     res.status(200).json(recipe);
   } catch (error) {

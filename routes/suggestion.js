@@ -20,7 +20,7 @@ const configuration = new Configuration({
           frequency_penalty: 0.5,
           presence_penalty: 0,
         });
-       return  {suggestion: completion.data.choices[0].text};
+       return  {suggestion: completion.data.choices[0].text.trim()};
     } catch (error) {
     }
   };
